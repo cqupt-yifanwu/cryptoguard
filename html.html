@@ -1,0 +1,20 @@
+<!-- 在需要弹出层的位置加上此段html，不要破坏原本的dom结构，另外要在head标签中引入jquery库文件，和本文件夹中的js，css文件，并且检查命名冲突 -->
+	<div class="passwordProtect">
+		<div class="protectTop">
+			<span>修改密码</span>
+			<div class="protectClose"></div>
+		</div>
+		<div class="protectContent"> 
+			<span>请选择密保问题：</span>
+			<select name="questionChoose" id="questionChoose">
+				<option value="q1">您就读的高中班主任的名字？</option>
+				<option value="q2">您就读的高中叫什么名字？</option>
+				<option value="q3">您就读的初中叫什么名字？</option>
+			</select>
+			<span>请输入密保问题：</span><input type="text" id="protectAnswer" name="protectAnswer" /><br/>
+			<span>输入你的旧密码：</span><input type="password" id="oldPassword" name="oldPassword" /><br/>
+			<span>输入你的新密码：</span><input type="password" id="newPassword" name="newPassword" /><br/>
+			<span>再次输入新密码：</span><input type="password" id="reNewPassword" name="reNewPassword" /><br/>
+		</div>
+		<button id="passwordSubmit">提交</button>
+	</div>
