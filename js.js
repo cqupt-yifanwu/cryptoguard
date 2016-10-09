@@ -1,18 +1,37 @@
 $(function(){
+	var parentDom = $(".passwordProtect")
 	var password = $('#newPassword');
 	var reInput = $('#reNewPassword');
 	var oldPassword = $('#oldPassword');
+
 	var strExp=new RegExp("^[0-9A-Za-z]{3,12}$");
+	
+
+
+	//固定表格位置
+	function center () {
+		var innerHeight = $(document).innerHeight(),
+			innerWidth = $(document).innerWidth();
+		var domHeight = parentDom.height(),
+			domWidth = parentDom.width();
+		var top = (innerHeight - domHeight)/2,
+			left = (innerWidth - domWidth)/2;
+		console.log(top,left);
+		parentDom.offset({top: top,left: left});
+	};
+	center();
+	$(window).resize(center);
+	
 
 	// 表单验证
-	password.blur(function(){
+	password.blur(function () {
 		if(!strExp.test(password.val())){
 			alert("密码只能为3到12位数字或英文字母!");
 			password.val('');
 			return false;
 		}
 	});
-	reInput.blur(function(){
+	reInput.blur(function () {
 		if($(this).val() != password.val()){
 			alert("请输入相同的新密码!");
 			$(this).val('');
@@ -26,14 +45,14 @@ $(function(){
 
 
    //关闭按钮
-	$('.protectClose').mouseover(function(){
+	$('.protectClose').mouseover(function () {
 		$(this).css('background', 'url('+'./img/panel_tools2.png'+') no-repeat -16px 1px');
 	}).mouseout(function(){
 		$(this).css('background', 'url('+'./img/panel_tools1.png'+') no-repeat -16px 1px');
 	});;
 
 	//提交按钮
-	$('#passwordSubmit').click(function(){
+	$('#passwordSubmit').click(function () {
 		var oldPasswordValue = oldPassword.val();
 		var questionIndex = $('#questionChoose').val()
 		var newPassword = password.val();
@@ -58,6 +77,8 @@ $(function(){
 			alert("答案不能为空！");
 			return false;
 		}
+		// ajax 传送数据
+		console.log(data);   //console出来
 		$.ajax({
 			url: '',
 			type: 'POST',

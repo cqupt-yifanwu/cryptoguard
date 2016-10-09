@@ -1,7 +1,7 @@
 .passwordProtect{
 	position: absolute;
 	width: 430px;
-	height: 230px;
+	height: 250px;
 	border: 1px solid #ddd;
 	font-weight: 600;
 }
@@ -21,22 +21,27 @@
 }
 .passwordProtect .protectTop span{
 	font-size: 14px;
-	line-height: 30px;
+	line-height: 28px;
 	color: #666666;
 }
 .passwordProtect .protectContent{
-	width: 300px;
-	margin: 10px auto;
+	/*width: 300px;*/
+	height: 60%;
+	margin: 10px 20px;
 	border: 1px solid #ddd;
-	padding: 5px 50px;
+	padding: 5px 10px 10px 10px;
+	overflow: hidden;
 }
-.passwordProtect #passwordSubmit{
+.passwordProtect .protectContent div {
+	padding-top: 5px;
+}
+.passwordProtect #passwordSubmit {
 	float: right;
 	margin-right: 30px;
 	margin-bottom: 20px;
 }
 .passwordProtect input{
-	width: 185px;
-	height: 20px;
+	width: 193px;
+	height: 16px;
 	margin-top: 5px;
 }
