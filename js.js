@@ -3,12 +3,14 @@ $(function(){
 	var password = $('#newPassword');
 	var reInput = $('#reNewPassword');
 	var oldPassword = $('#oldPassword');
+	var cyptoguard = $('#cyptoguard'); // 黑色半透明遮幕
 
 	var strExp=new RegExp("^[0-9A-Za-z]{3,12}$");
 	
 
-
+    //此demo中完全利用css控制元素居中，无法良好兼容ie，若考虑到兼容性可以启用这段代码
 	//固定表格位置
+	/*
 	function center () {
 		var innerHeight = $(document).innerHeight(),
 			innerWidth = $(document).innerWidth();
@@ -21,7 +23,15 @@ $(function(){
 	};
 	center();
 	$(window).resize(center);
+	*/
 	
+
+	//弹出修改密码框
+	$('#clickMe').click(function () {
+		cyptoguard.css('display', 'inline-block');
+		return false;
+	});
+
 
 	// 表单验证
 	password.blur(function () {
@@ -49,7 +59,9 @@ $(function(){
 		$(this).css('background', 'url('+'./img/panel_tools2.png'+') no-repeat -16px 1px');
 	}).mouseout(function(){
 		$(this).css('background', 'url('+'./img/panel_tools1.png'+') no-repeat -16px 1px');
-	});;
+	}).click(function(){
+		cyptoguard.css('display', 'none');
+	});
 
 	//提交按钮
 	$('#passwordSubmit').click(function () {
